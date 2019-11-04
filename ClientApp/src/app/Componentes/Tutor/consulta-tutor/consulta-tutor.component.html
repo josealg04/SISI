@@ -6,6 +6,7 @@
         <thead>
             <tr>
             <tr>
+                <th>tipoDocumento</th>
                 <th>cedula</th>
                 <th>primerNombre</th>
                 <th>segundoNombre</th>
@@ -20,9 +21,11 @@
                 <th>programa</th>
                 <th>email_Institucional</th>
                 <th>cvlac</th>
+                <!--<th>estado</th>-->
             </tr>
         </thead>
         <tr *ngFor="let tutor of tutores">
+            <td>{{tutor.tipoDocumento}}</td>
             <td>{{tutor.cedula}}</td>
             <td>{{tutor.primerNombre}}</td>
             <td>{{tutor.segundoNombre}}</td>
@@ -37,7 +40,8 @@
             <td>{{tutor.programa}}</td>
             <td>{{tutor.email_Institucional}}</td>
             <td>{{tutor.cvlac}}</td>
-            <td><a routerLink="/modificartutor/{{tutor.cedula}}">ver</a></td>
+        <!--    <td>{{tutor.estado}}</td>-->
+            <td><a routerLink="/modificartutor/{{tutor.cedula}}">Ver</a></td>
         </tr>
     </table>
 </div>

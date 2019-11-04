@@ -11,6 +11,10 @@ using SISI.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TutorSharpHTTP.Models;
+using NJsonSchema;
+using NSwag.AspNetCore;
+using System;
 
 namespace SISI
 {
@@ -26,6 +30,33 @@ namespace SISI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<TaskContext>(opt => opt.UseInMemoryDatabase("TaskBD"));
+            services.AddDbContext<TutorContext>(opt => opt.UseSqlServer(@"Server=JOSELOPEZ\SQLEXPRESS;Database=SISIBD;Trusted_Connection=True;"));
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            //Register the swagger services
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "SISI API";
+                    document.Info.Description = "A simple ASP.NET Core web API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Programacion Web",
+                        Email = string.Empty,
+                        Url = "https://sites.google.com/a/unicesar.edu.co/borisgonzalez/home"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license"
+                    };
+                };
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -64,6 +95,13 @@ namespace SISI
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            //Register the swagger generator and the swagger ui middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+            app.UseMvc();
+            
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();

@@ -1,4 +1,5 @@
 export class Persona {
+    tipoDocumento : string;
     cedula : number;
     primerNombre : string;
     segundoNombre : string;
@@ -9,5 +10,5 @@ export class Persona {
     direccion : string;
     telefono : number;
     email_Personal : string;
-    estado : string;
+    //estado : string;
 }
