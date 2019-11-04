@@ -10,7 +10,7 @@ using TutorSharpHTTP.Models;
 namespace SISI.Migrations
 {
     [DbContext(typeof(TutorContext))]
-    [Migration("20191104174035_InitialCreate")]
+    [Migration("20191104183401_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,10 +23,9 @@ namespace SISI.Migrations
 
             modelBuilder.Entity("TutorSharpHTTP.Models.TutorItem", b =>
                 {
-                    b.Property<int>("Cedula")
+                    b.Property<long>("Cedula")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Cvlac")
                         .HasColumnType("nvarchar(max)");
@@ -64,8 +63,8 @@ namespace SISI.Migrations
                     b.Property<string>("SegundoNombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Telefono")
-                        .HasColumnType("int");
+                    b.Property<long>("Telefono")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("TipoDocumento")
                         .HasColumnType("nvarchar(max)");

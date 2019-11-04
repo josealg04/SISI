@@ -22,12 +22,23 @@ namespace TutorSharpHTTP.Controllers
             {
                 // Crea un nuevo item si la coleccion esta vacia,
                 // lo que significa que no puedes borrar todos los Items.
-                _context.TutorItems.Add(new TutorItem { TipoDocumento = "CC", Cedula = 1003242337, 
-                PrimerNombre = "Jose", SegundoNombre = "Angel", PrimerApellido = "Lopez", 
-                SegundoApellido = "Gomez", Genero = "Masculino" , FechaNacimiento = Convert.ToDateTime("04/08/2000"), 
-                Direccion = "Manzana 5 Casa 13 Alamos 2", Telefono = 3013222267, Email_Personal = "ggg", 
-                FechaIngreso = Convert.ToDateTime("04/08/2000"), Programa = "Ingeniería de Sistemas", Email_Institucional = "hhh", 
-                Cvlac = "jjj" });
+                _context.TutorItems.Add(new TutorItem { 
+                    TipoDocumento = "CC", 
+                    Cedula = 1003242337, 
+                    PrimerNombre = "Jose", 
+                    SegundoNombre = "Angel", 
+                    PrimerApellido = "Lopez", 
+                    SegundoApellido = "Gomez", 
+                    Genero = "Masculino", 
+                    FechaNacimiento = Convert.ToDateTime("04/08/2000"), 
+                    Direccion = "Manzana 5 Casa 13 Alamos 2", 
+                    Telefono = 3013222267, 
+                    Email_Personal = "ggg", 
+                    FechaIngreso = Convert.ToDateTime("04/08/2000"), 
+                    Programa = "Ingeniería de Sistemas", 
+                    Email_Institucional = "hhh", 
+                    Cvlac = "jjj" 
+                });
                 _context.SaveChanges();
             }
         }
@@ -42,7 +53,7 @@ namespace TutorSharpHTTP.Controllers
 
         // GET: api/Tutor/5
         [HttpGet("{cedula}")]
-        public async Task<ActionResult<TutorItem>> GetTutorItem(int cedula)
+        public async Task<ActionResult<TutorItem>> GetTutorItem(uint cedula)
         {
             var tutorItem = await _context.TutorItems.FindAsync(cedula);
             if (tutorItem == null)
@@ -63,7 +74,7 @@ namespace TutorSharpHTTP.Controllers
 
         // PUT: api/Tutor/5
         [HttpPut("{cedula}")]
-        public async Task<IActionResult> Put(long cedula, TutorItem item)
+        public async Task<IActionResult> Put(uint cedula, TutorItem item)
         {
             if (cedula != item.Cedula)
             {
@@ -78,7 +89,7 @@ namespace TutorSharpHTTP.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{cedula}")]
-        public async Task<IActionResult> DeleteTutorItem(int cedula)
+        public async Task<IActionResult> DeleteTutorItem(uint cedula)
         {
             var TutorItem = await
             _context.TutorItems.FindAsync(cedula);
