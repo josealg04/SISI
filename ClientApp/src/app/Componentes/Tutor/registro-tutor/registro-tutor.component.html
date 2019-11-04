@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Registrar tutor</h1>
+</div>
+<div class="form-group">
+    <label>Cedula:
+        <input [(ngModel)]="tutor.cedula" class="form-control" placeholder="Digite la cedula" type="number" />
+    </label>
+</div>
+<div class="form-group">
+    <label>Primer nombre:
+        <input [(ngModel)]="tutor.primerNombre" class="form-control" placeholder="Digite el primer nombre" type="text" />
+    </label>
+</div>
+<div class="form-group">
+    <label>Segundo nombre:
+        <input [(ngModel)]="tutor.segundoNombre" class="form-control" placeholder="Digite el segundo nombre " type="text" />
+    </label>
+</div>
+<div class="form-group">
+        <label>Primer apellido:
+            <input [(ngModel)]="tutor.primerApellido" class="form-control" placeholder="Digite el primer apellido" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Segundo apellido:
+            <input [(ngModel)]="tutor.segundoApellido" class="form-control" placeholder="Digite el segundo apellido" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Genero: </label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="tutor.genero" type="text"> 
+            <option>Masculino</option>
+            <option>Femenino</option>
+        </select>
+    </div>
+<div class="form-group">
+    <button (click)="add()" class="btn btn-primary">Agregar</button>
+</div>

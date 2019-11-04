@@ -1,0 +1,43 @@
+<div>
+    <h1 class="h2">List</h1>
+</div>
+<div>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+            <tr>
+                <th>cedula</th>
+                <th>primerNombre</th>
+                <th>segundoNombre</th>
+                <th>primerApellido</th>
+                <th>segundoApellido</th>
+                <th>genero</th>
+                <th>fechaNacimiento</th>
+                <th>direccion</th>
+                <th>telefono</th>
+                <th>email_Personal</th>
+                <th>fechaIngreso</th>
+                <th>programa</th>
+                <th>email_Institucional</th>
+                <th>cvlac</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let tutor of tutores">
+            <td>{{tutor.cedula}}</td>
+            <td>{{tutor.primerNombre}}</td>
+            <td>{{tutor.segundoNombre}}</td>
+            <td>{{tutor.primerApellido}}</td>
+            <td>{{tutor.segundoApellido}}</td>
+            <td>{{tutor.genero}}</td>
+            <td>{{tutor.fechaNacimiento}}</td>
+            <td>{{tutor.direccion}}</td>
+            <td>{{tutor.telefono}}</td>
+            <td>{{tutor.email_Personal}}</td>
+            <td>{{tutor.fechaIngreso}}</td>
+            <td>{{tutor.programa}}</td>
+            <td>{{tutor.email_Institucional}}</td>
+            <td>{{tutor.cvlac}}</td>
+            <td><a routerLink="/modificartutor/{{tutor.cedula}}">ver</a></td>
+        </tr>
+    </table>
+</div>
