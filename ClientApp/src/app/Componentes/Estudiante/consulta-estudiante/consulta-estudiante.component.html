@@ -1,31 +1,32 @@
 <div>
     <h1 class="h2">List</h1>
 </div>
-<div>
-    <table class='table table-striped'>
+<div class="text-nowrap">
+    <table class="table table-hover table-responsive table-borderless table-fixed">
         <thead>
             <tr>
             <tr>
-                <th>tipoDocumento</th>
-                <th>cedula</th>
-                <th>primerNombre</th>
-                <th>segundoNombre</th>
-                <th>primerApellido</th>
-                <th>segundoApellido</th>
-                <th>genero</th>
-                <th>fechaNacimiento</th>
-                <th>direccion</th>
-                <th>telefono</th>
-                <th>email_Personal</th>
-                <th>fechaIngreso</th>
-                <th>facultad</th>
-                <th>programa</th>
-                <th>semestre</th>
-                <th>email_Institucional</th>
-                <th>cvlac</th>
+                <th>Tipo de documento</th>
+                <th>Cedula</th>
+                <th>Primer Nombre</th>
+                <th>Segundo Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Genero</th>
+                <th>Fecha de nacimiento</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Email personal</th>
+                <th>Fecha de ingreso</th>
+                <th>Facultad</th>
+                <th>Programa</th>
+                <th>Semestre</th>
+                <th>Email Institucional</th>
+                <th>CvLAC</th>
                 <!--<th>estado</th>-->
             </tr>
         </thead>
+        <tbody>
         <tr *ngFor="let estudiante of estudiantes">
             <td>{{estudiante.tipoDocumento}}</td>
             <td>{{estudiante.cedula}}</td>
@@ -45,7 +46,8 @@
             <td>{{estudiante.email_Institucional}}</td>
             <td>{{estudiante.cvlac}}</td>
         <!--    <td>{{tutor.estado}}</td>-->
-            <td><a routerLink="/editarestudiante/{{estudiante.cedula}}">Ver</a></td>
+            <td><a routerLink="/editarestudiante/{{estudiante.cedula}}">Editar</a></td>
         </tr>
+    </tbody>
     </table>
 </div>
