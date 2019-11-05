@@ -1,0 +1,51 @@
+<div>
+    <h1 class="h2">List</h1>
+</div>
+<div>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+            <tr>
+                <th>tipoDocumento</th>
+                <th>cedula</th>
+                <th>primerNombre</th>
+                <th>segundoNombre</th>
+                <th>primerApellido</th>
+                <th>segundoApellido</th>
+                <th>genero</th>
+                <th>fechaNacimiento</th>
+                <th>direccion</th>
+                <th>telefono</th>
+                <th>email_Personal</th>
+                <th>fechaIngreso</th>
+                <th>facultad</th>
+                <th>programa</th>
+                <th>semestre</th>
+                <th>email_Institucional</th>
+                <th>cvlac</th>
+                <!--<th>estado</th>-->
+            </tr>
+        </thead>
+        <tr *ngFor="let estudiante of estudiantes">
+            <td>{{estudiante.tipoDocumento}}</td>
+            <td>{{estudiante.cedula}}</td>
+            <td>{{estudiante.primerNombre}}</td>
+            <td>{{estudiante.segundoNombre}}</td>
+            <td>{{estudiante.primerApellido}}</td>
+            <td>{{estudiante.segundoApellido}}</td>
+            <td>{{estudiante.genero}}</td>
+            <td>{{estudiante.fechaNacimiento}}</td>
+            <td>{{estudiante.direccion}}</td>
+            <td>{{estudiante.telefono}}</td>
+            <td>{{estudiante.email_Personal}}</td>
+            <td>{{estudiante.fechaIngreso}}</td>
+            <td>{{estudiante.facultad}}</td>
+            <td>{{estudiante.programa}}</td>
+            <td>{{estudiante.semestre}}</td>
+            <td>{{estudiante.email_Institucional}}</td>
+            <td>{{estudiante.cvlac}}</td>
+        <!--    <td>{{tutor.estado}}</td>-->
+            <td><a routerLink="/editarestudiante/{{estudiante.cedula}}">Ver</a></td>
+        </tr>
+    </table>
+</div>

@@ -9,16 +9,16 @@ import { Tutor } from '../../../models/tutor';
 })
 export class ConsultaTutorComponent implements OnInit {
 
-  tutores:Tutor[];
+  tutores: Tutor[];
 
-  constructor(private tutorservice:TutorService) { }
+  constructor(private tutorservice: TutorService) { }
 
   ngOnInit() {
     this.getAll();
   }
 
-  getAll(){
-    this.tutorservice.getAll().subscribe(tutores=>this.tutores=tutores);
-    }
+  getAll() {
+    this.tutorservice.getAll().subscribe(tutores => this.tutores = tutores);
+  }
 
 }

@@ -9,5 +9,6 @@ namespace TutorSharpHTTP.Models
         {
         }
         public DbSet<TutorItem> TutorItems { get; set; }
+        public DbSet<EstudianteItem> EstudianteItems { get; set;} 
     }
 }

@@ -8,6 +8,33 @@ namespace SISI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "EstudianteItems",
+                columns: table => new
+                {
+                    Cedula = table.Column<long>(nullable: false),
+                    TipoDocumento = table.Column<string>(nullable: true),
+                    PrimerNombre = table.Column<string>(nullable: true),
+                    SegundoNombre = table.Column<string>(nullable: true),
+                    PrimerApellido = table.Column<string>(nullable: true),
+                    SegundoApellido = table.Column<string>(nullable: true),
+                    Genero = table.Column<string>(nullable: true),
+                    FechaNacimiento = table.Column<DateTime>(nullable: false),
+                    Direccion = table.Column<string>(nullable: true),
+                    Telefono = table.Column<long>(nullable: false),
+                    Email_Personal = table.Column<string>(nullable: true),
+                    FechaIngreso = table.Column<DateTime>(nullable: false),
+                    Facultad = table.Column<string>(nullable: true),
+                    Programa = table.Column<string>(nullable: true),
+                    Semestre = table.Column<string>(nullable: true),
+                    Email_Institucional = table.Column<string>(nullable: true),
+                    Cvlac = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EstudianteItems", x => x.Cedula);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TutorItems",
                 columns: table => new
                 {
@@ -35,6 +62,9 @@ namespace SISI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "EstudianteItems");
+
             migrationBuilder.DropTable(
                 name: "TutorItems");
         }

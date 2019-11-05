@@ -1,0 +1,95 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Registrar estudiante</h1>
+</div>
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Tipo de documento: </label>
+    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="estudiante.tipoDocumento" type="text"> 
+        <option>CC</option>
+        <option>TI</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Cedula:
+        <input [(ngModel)]="estudiante.cedula" class="form-control" placeholder="Digite la cedula" type="number" />
+    </label>
+</div>
+<div class="form-group">
+    <label>Primer nombre:
+        <input [(ngModel)]="estudiante.primerNombre" class="form-control" placeholder="Digite el primer nombre" type="text" />
+    </label>
+</div>
+<div class="form-group">
+    <label>Segundo nombre:
+        <input [(ngModel)]="estudiante.segundoNombre" class="form-control" placeholder="Digite el segundo nombre " type="text" />
+    </label>
+</div>
+<div class="form-group">
+        <label>Primer apellido:
+            <input [(ngModel)]="estudiante.primerApellido" class="form-control" placeholder="Digite el primer apellido" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Segundo apellido:
+            <input [(ngModel)]="estudiante.segundoApellido" class="form-control" placeholder="Digite el segundo apellido" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Genero: </label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="estudiante.genero" type="text"> 
+            <option>Masculino</option>
+            <option>Femenino</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Fecha de nacimiento:
+            <input [(ngModel)]="estudiante.fechaNacimiento" class="form-control" placeholder="Digite su fecha de nacimiento" type="date" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Direccion:
+            <input [(ngModel)]="estudiante.direccion" class="form-control" placeholder="Digite su direccion" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Telefono:
+            <input [(ngModel)]="estudiante.telefono" class="form-control" placeholder="Digite su telefono" type="number" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Email personal:
+            <input [(ngModel)]="estudiante.email_Personal" class="form-control" placeholder="Digite su email personal" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Fecha de ingreso:
+            <input [(ngModel)]="estudiante.fechaIngreso" class="form-control" placeholder="Digite su fecha de ingreso" type="date" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Facultad:
+            <input [(ngModel)]="estudiante.facultad" class="form-control" placeholder="Digite la facultad al que pertenece" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Programa:
+            <input [(ngModel)]="estudiante.programa" class="form-control" placeholder="Digite el programa al que pertenece" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Semestre:
+            <input [(ngModel)]="estudiante.semestre" class="form-control" placeholder="Digite el semestre que cursa" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Email institucional:
+            <input [(ngModel)]="estudiante.email_Institucional" class="form-control" placeholder="Digite su email institucional" type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Link CvLAC:
+            <input [(ngModel)]="estudiante.cvlac" class="form-control" placeholder="Digite el link de CvLAC" type="text" />
+        </label>
+    </div>
+<div class="form-group">
+    <button (click)="add()" class="btn btn-primary">Agregar</button>
+</div>

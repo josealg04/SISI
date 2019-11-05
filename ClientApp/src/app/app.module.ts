@@ -14,8 +14,11 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { RegistroTutorComponent } from './Componentes/Tutor/registro-tutor/registro-tutor.component';
 import { ConsultaTutorComponent } from './Componentes/Tutor/consulta-tutor/consulta-tutor.component';
-import { ModificarTutorComponent } from './Componentes/Tutor/modificar-tutor/modificar-tutor.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditarTutorComponent } from './Componentes/Tutor/editar-tutor/editar-tutor.component';
+import { RegistroEstudianteComponent } from './Componentes/Estudiante/registro-estudiante/registro-estudiante.component';
+import { ConsultaEstudianteComponent } from './Componentes/Estudiante/consulta-estudiante/consulta-estudiante.component';
+import { EditarEstudianteComponent } from './Componentes/Estudiante/editar-estudiante/editar-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { AppRoutingModule } from './app-routing.module';
     FetchDataComponent,
     RegistroTutorComponent,
     ConsultaTutorComponent,
-    ModificarTutorComponent
+    EditarTutorComponent,
+    RegistroEstudianteComponent,
+    ConsultaEstudianteComponent,
+    EditarEstudianteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
