@@ -1,39 +1,29 @@
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">
-        <img class="logo" src="assets/images/logo1.png" alt="logo" [routerLink]="['/']">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
-        <app-login-menu></app-login-menu>
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
-          <!--<li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>-->
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/registrotutor"]'>Registrar Tutor</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/consultatutor"]'>Consultar Tutor</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/registroestudiante"]'>Registrar Estudiante</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/consultaestudiante"]'>Consultar Estudiante</a>
-          </li>
-        </ul>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="barra">
+  <img class="logo" src="assets/images/logo2.png" alt="logo">
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Tutor</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/registrotutor"]'><i
+                class="fa fa-plus fa-lg"></i> Registrar tutor</a></button>
+          <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/consultatutor"]'><i
+                class="fa fa-search fa-lg"></i>Consultar tutor</a></button>
+        </div>
       </div>
     </div>
-  </nav>
-</header>
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Estudiante</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/registroestudiante"]'><i
+                  class="fa fa-plus fa-lg"></i> Registrar estudiante</a></button>
+            <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/consultaestudiante"]'><i
+                  class="fa fa-search fa-lg"></i>Consultar estudiante</a></button>
+          </div>
+        </div>
+      </div>
+  </div>

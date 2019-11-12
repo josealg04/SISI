@@ -1,6 +1,6 @@
 export class Persona {
     tipoDocumento : string;
-    cedula : number;
+    cedula : string;
     primerNombre : string;
     segundoNombre : string;
     primerApellido : string;
@@ -8,7 +8,7 @@ export class Persona {
     genero : string;
     fechaNacimiento : Date;
     direccion : string;
-    telefono : number;
+    telefono : string;
     email_Personal : string;
     //estado : string;
 }

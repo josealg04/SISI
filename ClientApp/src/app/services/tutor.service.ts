@@ -49,8 +49,8 @@ export class TutorService {
   }
 
   /** DELETE: delete the tutor from the server */
-  delete(tutor: Tutor | number): Observable<Tutor> {
-    const cedula = typeof tutor === 'number' ? tutor : tutor.cedula;
+  delete(tutor: Tutor | string): Observable<Tutor> {
+    const cedula = typeof tutor === 'string' ? tutor : tutor.cedula;
     const url = `${this.baseUrl + 'api/Tutor'}/${cedula}`;
     return this.http.delete<Tutor>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted tutor cedula=${cedula}`)),

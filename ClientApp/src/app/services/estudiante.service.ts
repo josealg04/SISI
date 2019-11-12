@@ -49,8 +49,8 @@ export class EstudianteService {
   }
 
   /** DELETE: delete the estudiante from the server */
-  delete(estudiante: Estudiante | number): Observable<Estudiante> {
-    const cedula = typeof estudiante === 'number' ? estudiante : estudiante.cedula;
+  delete(estudiante: Estudiante | string): Observable<Estudiante> {
+    const cedula = typeof estudiante === 'string' ? estudiante : estudiante.cedula;
     const url = `${this.baseUrl + 'api/Estudiante'}/${cedula}`;
     return this.http.delete<Estudiante>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted estudiante cedula=${cedula}`)),

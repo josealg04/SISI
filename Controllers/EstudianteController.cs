@@ -24,7 +24,7 @@ namespace TutorSharpHTTP.Controllers
                 // lo que significa que no puedes borrar todos los Items.
                 _context.EstudianteItems.Add(new EstudianteItem { 
                     TipoDocumento = "CC", 
-                    Cedula = 1001088801, 
+                    Cedula = "1001088801", 
                     PrimerNombre = "Diego", 
                     SegundoNombre = "Alejandro", 
                     PrimerApellido = "Martinez", 
@@ -32,14 +32,14 @@ namespace TutorSharpHTTP.Controllers
                     Genero = "Masculino", 
                     FechaNacimiento = Convert.ToDateTime("29/02/2000"), 
                     Direccion = "Carrera 30A #30-88", 
-                    Telefono = 3233508410, 
-                    Email_Personal = "ggg", 
+                    Telefono = "3233508410", 
+                    Email_Personal = "jose-angel200090@hotmail.com", 
                     FechaIngreso = Convert.ToDateTime("29/02/2000"), 
                     Facultad = "Facultad de Ingenierías y Tecnologías",
                     Programa = "Ingeniería de Sistemas", 
                     Semestre = "Sexto Semestre",
-                    Email_Institucional = "hhh", 
-                    Cvlac = "jjj" 
+                    Email_Institucional = "jangellopez@unicesar.edu.co", 
+                    Cvlac = "www.google.com" 
                 });
                 _context.SaveChanges();
             }
@@ -55,7 +55,7 @@ namespace TutorSharpHTTP.Controllers
 
         // GET: api/Tutor/5
         [HttpGet("{cedula}")]
-        public async Task<ActionResult<EstudianteItem>> GetEstudianteItem(uint cedula)
+        public async Task<ActionResult<EstudianteItem>> GetEstudianteItem(string cedula)
         {
             var estudianteItem = await _context.EstudianteItems.FindAsync(cedula);
             if (estudianteItem == null)
@@ -69,6 +69,13 @@ namespace TutorSharpHTTP.Controllers
         [HttpPost]
         public async Task<ActionResult<EstudianteItem>> PostEstudianteItem(EstudianteItem item)
         {
+
+             if (!ModelState.IsValid)
+             {
+                BadRequest(ModelState);
+
+             }    
+
             _context.EstudianteItems.Add(item);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetEstudianteItem), new { cedula = item.Cedula }, item);
@@ -76,7 +83,7 @@ namespace TutorSharpHTTP.Controllers
 
         // PUT: api/Tutor/5
         [HttpPut("{cedula}")]
-        public async Task<IActionResult> Put(uint cedula, EstudianteItem item)
+        public async Task<IActionResult> Put(string cedula, EstudianteItem item)
         {
             if (cedula != item.Cedula)
             {
@@ -91,7 +98,7 @@ namespace TutorSharpHTTP.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{cedula}")]
-        public async Task<IActionResult> DeleteEstudianteItem(uint cedula)
+        public async Task<IActionResult> DeleteEstudianteItem(string cedula)
         {
             var EstudianteItem = await
             _context.EstudianteItems.FindAsync(cedula);
