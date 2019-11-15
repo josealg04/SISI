@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+h1{
+    text-align: center;
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
+}
+
+label{
+    font-family: "Montserrat", sans-serif;
+}
+
+option, select{
+    font-family: "Montserrat", sans-serif;
+}
+
+button{
+    margin: 0 10px 0 10px;
+}

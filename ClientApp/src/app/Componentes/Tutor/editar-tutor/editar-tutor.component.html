@@ -3,19 +3,20 @@
 
 <div *ngIf="tutor">
     <div>
-        <h1 class="h2">Detalle Tutor</h1>
+        <h1 class="h2"><b>Editar tutor</b></h1>
     </div>
-    <p>Editar/Eliminar tutores</p>
+<br>
     <div class="form-group">
-        <label>Tipo de documento:
+        <label><b>Tipo de documento:</b>
             {{tutor.tipoDocumento}}
         </label>
     </div>
     <div class="form-group">
-        <label>Cedula:
+        <label><b>Cedula:</b>
             {{tutor.cedula}}
         </label>
     </div>
+    <br>
     <div class="form-group">
         <label>Primer nombre:
             <input [(ngModel)]="tutor.primerNombre" class="form-control" placeholder="Digite el primer nombre"
@@ -94,6 +95,6 @@
     </div>
     <div class="form-group">
         <button (click)="update()" class="btn btn-primary">Actualizar</button>
-        <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+        <button (click)="delete()" class="btn btn-danger">Eliminar</button>
     </div>
 </div>
