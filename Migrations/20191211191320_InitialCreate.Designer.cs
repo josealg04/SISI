@@ -10,7 +10,7 @@ using TutorSharpHTTP.Models;
 namespace SISI.Migrations
 {
     [DbContext(typeof(TutorContext))]
-    [Migration("20191211155255_InitialCreate")]
+    [Migration("20191211191320_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,26 @@ namespace SISI.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("TutorSharpHTTP.Models.Administrador", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdministradorItems");
+                });
 
             modelBuilder.Entity("TutorSharpHTTP.Models.Convocatoria", b =>
                 {

@@ -15,5 +15,6 @@ namespace TutorSharpHTTP.Models
         public DbSet<Programa> ProgramaItems { get; set; }
         public DbSet<Convocatoria> ConvocatoriaItems { get; set; }
         public DbSet<Grupo> GrupoItems { get; set; }
+        public DbSet<Administrador> AdministradorItems { get; set; }
     }
 }

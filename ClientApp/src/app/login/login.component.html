@@ -28,6 +28,7 @@
                 [ngClass]="{ 'is-invalid': submitted && f.rol.errors }">
                 <option value="" disabled>Selecciona una opción</option>
                 <option value="Tutor">Tutor</option>
+                <option value="Administrador">Administrador</option>
             </select>
             <div *ngIf="submitted && f.rol.errors" class="invalid-feedback">
                 <div *ngIf="f.rol.errors.required">Seleccione una opción</div>

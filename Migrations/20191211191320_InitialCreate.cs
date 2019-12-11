@@ -8,6 +8,20 @@ namespace SISI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "AdministradorItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdministradorItems", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ConvocatoriaItems",
                 columns: table => new
                 {
@@ -153,6 +167,9 @@ namespace SISI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AdministradorItems");
+
             migrationBuilder.DropTable(
                 name: "ConvocatoriaItems");
 

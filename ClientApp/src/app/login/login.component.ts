@@ -5,8 +5,10 @@ import { first } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { TutorService } from '../services/tutor.service';
 import { Tutor } from '../models/tutor';
+import { Administrador } from '../models/administrador';
 import { isUndefined } from 'util';
 import { ToastrService } from 'ngx-toastr';
+import { AdministradorService } from '../services/administrador.service';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +28,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthService,
     private tutorService: TutorService,
+    private admService: AdministradorService,
     private toastr: ToastrService
-    ) {
+  ) {
     // redirigir a home si ya inició sesión
     /*if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   tutor: Tutor;
+  administrador: Administrador;
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -73,8 +77,13 @@ export class LoginComponent implements OnInit {
     if (tipoCargo == "Tutor") {
       this.ValidarLoginTutor();
     } else {
+      if (tipoCargo == "Administrador") {
+        this.ValidarLoginAdministrador()
+      } else {
+        return alert("Elija un rol");
+      }
       //alert("Elija un Rol");
-      return alert("Elija un rol");
+
       /* if (tipoCargo == "Administrador") {
          //this.ValidarLoginJefe();
        }else{
@@ -88,26 +97,26 @@ export class LoginComponent implements OnInit {
     this.tutorService.getTutorByUser(username).subscribe(tutor => {
       this.tutor = tutor;
       if (!isUndefined(this.tutor)) {
-        this.ValidarDocente(this.tutor.username, this.tutor.password);
+        this.ValidarTutor(this.tutor.username, this.tutor.password);
         this.tutorService.AddTutorLS(this.tutor);
 
       }
     });
   }
-  /*
-    ValidarLoginJefe() {
-      var user = (document.getElementById("username") as HTMLInputElement).value;
-      this.jefeService.get(user).subscribe(jefe => {
-        this.jefeDpto = jefe;
-        if (!isUndefined(this.docente)) {
-          this.ValidarJefe(this.jefe.usuario, this.jefe.password);
-          this.jefeService.AddJefeDepartamentoLS(this.jefe);
-  
-        }
-      });
-    }
-  */
-  ValidarDocente(usuario: string, password: string) {
+
+  ValidarLoginAdministrador() {
+    var user = this.f.username.value;
+    this.admService.getAdministradorByUser(user).subscribe(administrador => {
+      this.administrador = administrador;
+      if (!isUndefined(this.administrador)) {
+        this.ValidarAdministrador(this.administrador.username, this.administrador.password);
+        this.admService.AddAdministradorLS(this.administrador);
+
+      }
+    });
+  }
+
+  ValidarTutor(usuario: string, password: string) {
     var user = this.f.username.value;
     var pass = this.f.password.value;
     console.log("usuario html", user)
@@ -118,20 +127,23 @@ export class LoginComponent implements OnInit {
       this.tutorService.setTutorLoggedIn();
       this.router.navigate(['/home']);
     } else {
-      return alert('Contraseña incorrecta');
+      alert('Contraseña incorrecta');
     }
   }
-  /*ValidarJefe(usuario: string, Contraseña: string) {
-    var user = (document.getElementById("username") as HTMLInputElement).value;
-    var pass = (document.getElementById("password") as HTMLInputElement).value;
-
-    if (usuario == user && Contraseña == pass) {
-      this.jefeService.setJefeLoggedId();
-      this.router.navigate(['/HomePage']);
+  ValidarAdministrador(usuario: string, password: string) {
+    var user = this.f.username.value;
+    var pass = this.f.password.value;
+    console.log("usuario html", user)
+    console.log("contraseña html", pass)
+    console.log("usuario recibido", usuario)
+    console.log("password recibido", password)
+    if (usuario == user && password == pass) {
+      this.admService.setAdministradorLoggedIn();
+      this.router.navigate(['/home']);
     } else {
       alert("Contraseña incorrecta")
     }
-  }*/
+  }
 
 
 

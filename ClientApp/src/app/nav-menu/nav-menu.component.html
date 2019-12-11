@@ -1,11 +1,12 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="contenedor" *ngIf="isAuthenticated()">
+<div class="contenedor" *ngIf="isAuthenticated() || isAuthenticatedAdm()">
   <a href="/home"><img src="/assets/images/logoupc.png" class="logo"></a>
   <div class="menu-toggle"></div>
   <nav>
       <ul>
           <li><a routerLink="/home">Home</a></li>
+          <li *ngIf="isAuthenticatedAdm()"><a routerLink="/registroconvocatoria">Registrar convocatoria</a></li>
           <li><a routerLink="/registrotutor">Registrar tutor</a></li>
           <li><a routerLink="/consultatutor">Consultar tutor</a></li>
           <li><a routerLink="/registroestudiante">Registrar estudiante</a></li>

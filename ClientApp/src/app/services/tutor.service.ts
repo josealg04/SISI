@@ -108,7 +108,7 @@ export class TutorService {
   getTutorLoggedIn(): boolean {
     if (JSON.parse(localStorage.getItem("TutorLoggedIn")) != null) {
       this.isTutor.next(JSON.parse(localStorage.getItem("TutorLoggedIn")));
-      return JSON.parse(sessionStorage.getItem("TutorLoggedIn"));
+      return JSON.parse(localStorage.getItem("TutorLoggedIn"));
     } else {
       this.isTutor.next(false);
       return false;

@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { Rol } from '../models/rol';
 import { UserService } from '../services/user.service';
 import { TutorService } from '../services/tutor.service';
+import { AdministradorService } from '../services/administrador.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -16,7 +17,7 @@ export class NavMenuComponent implements OnInit {
 
   //currentUser: User;
 
-  constructor(private router: Router, private tutorService: TutorService) {
+  constructor(private router: Router, private tutorService: TutorService, private admService: AdministradorService) {
     //this.authorizeService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -38,5 +39,9 @@ export class NavMenuComponent implements OnInit {
 
   public isAuthenticated(): boolean {
     return this.tutorService.isAuthenticatedTutor();
+  }
+
+  public isAuthenticatedAdm(): boolean {
+    return this.admService.isAuthenticatedAdministrador();
   }
 }
