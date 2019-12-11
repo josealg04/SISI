@@ -15,6 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 import { RegistroTutorComponent } from './Componentes/Tutor/registro-tutor/registro-tutor.component';
 import { ConsultaTutorComponent } from './Componentes/Tutor/consulta-tutor/consulta-tutor.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +25,13 @@ import { EditarTutorComponent } from './Componentes/Tutor/editar-tutor/editar-tu
 import { RegistroEstudianteComponent } from './Componentes/Estudiante/registro-estudiante/registro-estudiante.component';
 import { ConsultaEstudianteComponent } from './Componentes/Estudiante/consulta-estudiante/consulta-estudiante.component';
 import { EditarEstudianteComponent } from './Componentes/Estudiante/editar-estudiante/editar-estudiante.component';
+import { LoginComponent } from './login/login.component';
+import { FiltrotutorPipe } from './pipes/filtrotutor.pipe';
+import { AlertModalComponent } from './errores/modals/alert-modal/alert-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RegistroConvocatoriaComponent } from './Componentes/Convocatoria/registro-convocatoria/registro-convocatoria.component';
+import { ConsultaConvocatoriaComponent } from './Componentes/Convocatoria/consulta-convocatoria/consulta-convocatoria.component';
+import { EditarConvocatoriaComponent } from './Componentes/Convocatoria/editar-convocatoria/editar-convocatoria.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +43,19 @@ import { EditarEstudianteComponent } from './Componentes/Estudiante/editar-estud
     EditarTutorComponent,
     RegistroEstudianteComponent,
     ConsultaEstudianteComponent,
-    EditarEstudianteComponent
+    EditarEstudianteComponent,
+    LoginComponent,
+    FiltrotutorPipe,
+    AlertModalComponent,
+    RegistroConvocatoriaComponent,
+    ConsultaConvocatoriaComponent,
+    EditarConvocatoriaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
@@ -50,15 +67,19 @@ import { EditarEstudianteComponent } from './Componentes/Estudiante/editar-estud
     ReactiveFormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      /* { path: 'counter', component: CounterComponent },
-       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
+      /*{ path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'counter', component: CounterComponent },
+      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ]),
     AppRoutingModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent]
+  providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+  fakeBackendProvider*/],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertModalComponent]
 })
 export class AppModule { }

@@ -1,2 +1,4 @@
-export class Evaluador {
+import { Persona } from "./persona";
+
+export class Evaluador extends Persona{
 }

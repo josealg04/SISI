@@ -1,0 +1,43 @@
+<header class="home-area overlay" id="home_page">
+    <div class="container">
+        <form [formGroup]="convocatoriaForm" (ngSubmit)="onSubmit()">
+            <div class="titulo">
+                <h1 class="h2"><b>Registrar convocatoria</b></h1>
+            </div>
+            <br>
+
+            <div class="form-row">
+
+                <div class="form-group col-3">
+                    <label><b>Fecha de inicio:</b></label>
+                    <input class="form-control" formControlName="fechaInicio"
+                        [ngClass]="{ 'is-invalid': submitted && f.fechaInicio.errors }" type="date" />
+                    <div *ngIf="submitted && f.fechaInicio.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaInicio.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Tercera fila-->
+
+            <div class="form-row">
+
+                <div class="form-group col-3">
+                    <label><b>Fecha final:</b></label>
+                    <input class="form-control" formControlName="fechaFinal"
+                        [ngClass]="{ 'is-invalid': submitted && f.fechaFinal.errors }" type="date" />
+                    <div *ngIf="submitted && f.fechaFinal.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaFinal.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Cuarta fila-->
+
+            <div class="form-group">
+                <button class="btn btn-primary">Agregar</button>
+            </div>
+
+        </form>
+    </div>
+</header>

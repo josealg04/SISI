@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formulario">
+    <div class="contenedor">
+        <h1>Login</h1>
+        <br>
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" placeholder="Usuario" formControlName="username" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">El usuario es requerido</div>
+            </div>
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" placeholder="Contraseña" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">La contraseña es requerida</div>
+            </div>
+        </div>
+
+        <div class="input-contenedor">
+                <i class="fas fa-id-badge icon"></i>
+            <select formControlName="rol" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.rol.errors }">
+                <option value="" disabled>Selecciona una opción</option>
+                <option value="Tutor">Tutor</option>
+            </select>
+            <div *ngIf="submitted && f.rol.errors" class="invalid-feedback">
+                <div *ngIf="f.rol.errors.required">Seleccione una opción</div>
+            </div>
+        </div>
+
+        <button [disabled]="loading" class="buttonload">
+            <i class="fa fa-circle-notch fa-spin" *ngIf="loading" id="spinner"></i>Login
+        </button>
+        <div *ngIf="alert" class="alert alert-danger mt-3 mb-0">{{alert}}</div>
+    </div>
+</form>

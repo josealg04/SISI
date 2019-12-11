@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: #ffffff;
+    margin-top: 150px;
+    padding: 3px;
+}
+h1{
+    text-align: center;
+    color: #000000;
+    font-size: 40px;
+}
+input[type="text"],
+input[type="password"]{
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    margin-left: 50px;
+    border: none;
+    margin-top: -29px;
+}
+select{
+    font-size: 20px;
+    width: 82%;
+    /*padding: 10px;*/
+    margin-left: 50px;
+    border: none;
+    margin-top: -29px;
+}
+.input-contenedor{
+    margin-bottom: 28px;
+    border: 1px solid rgb(211, 211, 211);
+    justify-content: center;
+    height: 50px;
+    border-radius: 5px;
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+.buttonload{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #09B76B;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonload:active{
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    vertical-align: middle;
+}
+.buttonload:hover{
+    background: rgb(7, 150, 88);
+}
+#spinner{
+    margin: 5px;
+}
+p{
+    text-align: center;
+}
+.alert{
+    text-align: center;
+}
+@media(min-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}
+
+@media(max-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 100%;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}

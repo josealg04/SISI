@@ -10,5 +10,7 @@ export class Persona {
     direccion : string;
     telefono : string;
     email_Personal : string;
+    username: string;
+    password: string;
     //estado : string;
 }

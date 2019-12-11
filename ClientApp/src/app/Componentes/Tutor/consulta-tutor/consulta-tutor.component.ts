@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TutorService } from 'src/app/services/tutor.service';
 import { Tutor } from '../../../models/tutor';
 
@@ -9,16 +9,26 @@ import { Tutor } from '../../../models/tutor';
 })
 export class ConsultaTutorComponent implements OnInit {
 
+  pageActual: number = 1;
+
   tutores: Tutor[];
+  searchText: string;
+  @Output() seleccionado = new EventEmitter<Tutor>();
 
   constructor(private tutorservice: TutorService) { }
 
   ngOnInit() {
-    this.getAll();
+    this.tutorservice.getAll().subscribe(result => {
+      this.tutores = result;
+      this.searchText = '';
+  });
   }
 
-  getAll() {
+  /*getAll() {
     this.tutorservice.getAll().subscribe(tutores => this.tutores = tutores);
-  }
+  }*/
+  seleccionar(tutor: Tutor) {
+    this.seleccionado.emit(tutor);
+}
 
 }

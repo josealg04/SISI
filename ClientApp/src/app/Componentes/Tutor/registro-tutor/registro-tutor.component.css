@@ -1,21 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.home-area{
+    background: #ffffff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 20px;
+    padding-right: 12.5px;
+    padding-left: 12.5px;
+    padding-bottom: 40px;
+    border-radius: 5px;
+}
 
 .titulo{
     text-align: center;
     font-size: 32px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+    padding-top: 30px;
 }
 
 h1{
     text-align: center;
     font-size: 32px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 label{
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 option, select{
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #7e7e7e;
+}
+
+::placeholder{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+
+input{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #7e7e7e;
+}
+
+button{
+    width: auto;
+    font-family: "Poppins", sans-serif;
+}
+
+button:hover{
+    background: rgb(12, 63, 139);
 }

@@ -1,0 +1,30 @@
+<header class="home-area overlay" id="home_page">
+    <div *ngIf="convocatoria">
+        <div>
+            <h1 class="h2"><b>Editar tutor</b></h1>
+        </div>
+        <br>
+        <div class="form-group">
+            <label><b>id:</b>
+                {{convocatoria.idConvocatoria}}
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Fecha de inicio:
+                <input [(ngModel)]="convocatoria.fechaInicio" class="form-control"
+                    placeholder="Digite su fecha de inicio" type="date" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Fecha final:
+                <input [(ngModel)]="convocatoria.fechaFinal" class="form-control" placeholder="Digite su fecha final"
+                    type="date" />
+            </label>
+        </div>
+
+        <div class="form-group">
+            <button (click)="update()" class="btn btn-primary">Actualizar</button>
+            <button (click)="delete()" class="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+</header>

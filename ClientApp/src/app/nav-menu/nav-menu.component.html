@@ -1,32 +1,20 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="barra">
-  <img class="logo" src="assets/images/logo2.png" alt="logo">
-  <ul class="nav__links">
-      <li><a href="/">Home</a></li>
-  </ul>
-  <div class="row">
-    <div class="col">
-      <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Tutor</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/registrotutor"]'><i
-                class="fa fa-plus fa-lg"></i> Registrar tutor</a></button>
-          <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/consultatutor"]'><i
-                class="fa fa-search fa-lg"></i>Consultar tutor</a></button>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Estudiante</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/registroestudiante"]'><i
-                  class="fa fa-plus fa-lg"></i> Registrar estudiante</a></button>
-            <button ngbDropdownItem [routerLinkActive]='["link-active"]'><a [routerLink]='["/consultaestudiante"]'><i
-                  class="fa fa-search fa-lg"></i>Consultar estudiante</a></button>
-          </div>
-        </div>
-      </div>
-  </div>
+<div class="contenedor" *ngIf="isAuthenticated()">
+  <a href="/home"><img src="/assets/images/logoupc.png" class="logo"></a>
+  <div class="menu-toggle"></div>
+  <nav>
+      <ul>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/registrotutor">Registrar tutor</a></li>
+          <li><a routerLink="/consultatutor">Consultar tutor</a></li>
+          <li><a routerLink="/registroestudiante">Registrar estudiante</a></li>
+          <li><a routerLink="/consultaestudiante">Consultar estudiante</a></li>
+          <li><a>Hola {{ userName() }}</a></li>
+          <li><button (click)="logout()">Logout</button></li>
+      </ul>
+  </nav>
+  <div class="clearfix"></div>
+</div>
+
+<!-- *ngIf="isAdmin"  *ngIf="currentUser" -->

@@ -1,78 +1,76 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-* {
-    box-sizing: border-box;
+*{
     margin: 0;
     padding: 0;
-    background-color: rgb(2, 2, 8);
+    font-family: 'Poppins', sans-serif;
 }
 
-li, a, button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color:white;
+.contenedor{
+    position: relative;
+    /*max-width: 1200px;*/
+    /*margin: 20px auto;*/
+    width: 100%;
+    padding: 10px;
+    background: rgb(8, 221, 122);
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.logo{
+    /*color: #069370;*/
+    height: 60px;
+    font-size: 36px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+    float: left;
+    font-weight: 700;
     text-decoration: none;
+    transform: scale(0.9);
 }
 
-.barra {
+nav{
+    float: right;
+}
+.clearfix{
+    clear: both;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 10%;
-    box-shadow:  0px 7px 8px -5px rgba(0, 0, 0, 1);
-    height: 70px;
 }
 
-.logo {
-    cursor: pointer;
-    margin-right: auto;
-    transform: scale(0.3);
-}
-
-.nav__links {
+nav ul li{
     list-style: none;
 }
 
-.nav__links li {
-    display: inline-block;
-    padding: 0px 40px;
+nav ul li a{
+    display: block;
+    margin: 10px 3px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #262626;
 }
 
-.nav__links li a {
-    transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-    color: rgb(216, 218, 228);
-}
-
-button {
-    padding: 9px 25px;
+nav ul li button{
+    display: block;
+    margin: 10px 3px;
+    padding: 10px 15px;
+    text-decoration: none;
     border: none;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
+    color: #fff;
+    background: rgb(7, 187, 103);
+    border-radius: 35px;
 }
 
-.row a{
-    background-color:transparent;
-}
-
-.row i{
-    background-color:transparent;
-    margin-right: 10px;
-}
-
-.d-inline-block{
-    margin: 0 10px 0 10px;
-}
-
-button:hover {
-    background-color: rgba(216, 218, 228, 0.801);
-    color: black;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+nav ul li a.active,
+nav ul li a:hover{
+    background: rgb(8, 221, 122);
+    color: #fff;
+    /*transition: 0.5s;*/
 }

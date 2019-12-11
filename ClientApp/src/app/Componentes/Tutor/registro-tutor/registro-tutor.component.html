@@ -1,89 +1,231 @@
-<br>
-<br>
+<header class="home-area overlay" id="home_page">
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="titulo">
+                <h1 class="h2"><b>Registrar tutor</b></h1>
+            </div>
+            <br>
+            <div class="form-row">
+                <!--Primera fila-->
 
-<div class="titulo">
-    <h1 class="h2"><b>Registrar tutor</b></h1>
-</div>
-<br>
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Tipo de documento: </label>
-    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="tutor.tipoDocumento" type="text"> 
-        <option>CC</option>
-        <option>TI</option>
-    </select>
-</div>
-<div class="form-group">
-    <label>Cedula:
-        <input [(ngModel)]="tutor.cedula" class="form-control" placeholder="Digite la cedula" type="text" />
-    </label>
-</div>
-<div class="form-group">
-    <label>Primer nombre:
-        <input [(ngModel)]="tutor.primerNombre" class="form-control" placeholder="Digite el primer nombre" type="text" />
-    </label>
-</div>
-<div class="form-group">
-    <label>Segundo nombre:
-        <input [(ngModel)]="tutor.segundoNombre" class="form-control" placeholder="Digite el segundo nombre " type="text" />
-    </label>
-</div>
-<div class="form-group">
-        <label>Primer apellido:
-            <input [(ngModel)]="tutor.primerApellido" class="form-control" placeholder="Digite el primer apellido" type="text" />
-        </label>
+                <div class="form-group col-3">
+                    <label for="exampleFormControlSelect1"><b>Tipo de documento:</b></label>
+                    <select id="exampleFormControlSelect1" formControlName="tipoDocumento" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.tipoDocumento.errors }">
+                        <option value="" disabled>Selecciona una opción</option>
+                        <option value="CC">CC</option>
+                        <option value="TI">TI</option>
+                    </select>
+                    <div *ngIf="submitted && f.tipoDocumento.errors" class="invalid-feedback">
+                        <div *ngIf="f.tipoDocumento.errors.required">Seleccione una opción</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label><b>Cedula:</b></label>
+                    <input formControlName="cedula" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.cedula.errors }" placeholder="Digite la cedula"
+                        type="text" />
+                    <div *ngIf="submitted && f.cedula.errors" class="invalid-feedback">
+                        <div *ngIf="f.cedula.errors.required">Campo obligatorio</div>
+                        <div *ngIf="f.cedula.errors.maxlength">Debe tener máximo 12 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-5">
+                    <label><b>Primer nombre:</b></label>
+                    <input formControlName="primerNombre" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.primerNombre.errors }"
+                        placeholder="Digite el primer nombre" type="text" />
+                    <div *ngIf="submitted && f.primerNombre.errors" class="invalid-feedback">
+                        <div *ngIf="f.primerNombre.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Primera fila-->
+
+            <div class="form-row">
+                <!--Segunda fila-->
+
+                <div class="form-group col-4">
+                    <label><b>Segundo nombre:</b></label>
+                    <input formControlName="segundoNombre" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.segundoNombre.errors }"
+                        placeholder="Digite el segundo nombre " type="text" />
+                    <div *ngIf="submitted && f.segundoNombre.errors" class="invalid-feedback">
+                        <div *ngIf="f.segundoNombre.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label><b>Primer apellido:</b></label>
+                    <input formControlName="primerApellido" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.primerApellido.errors }"
+                        placeholder="Digite el primer apellido" type="text" />
+                    <div *ngIf="submitted && f.primerApellido.errors" class="invalid-feedback">
+                        <div *ngIf="f.primerApellido.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label><b>Segundo apellido:</b></label>
+                    <input formControlName="segundoApellido" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.segundoApellido.errors }"
+                        placeholder="Digite el segundo apellido" type="text" />
+                    <div *ngIf="submitted && f.segundoApellido.errors" class="invalid-feedback">
+                        <div *ngIf="f.segundoApellido.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Segunda fila-->
+
+            <div class="form-row">
+                <!--Tercera fila-->
+
+                <div class="form-group col-3">
+                    <label><b>Género:</b></label>
+                    <select formControlName="genero" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
+                        <option value="" disabled>Selecciona una opción</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <div *ngIf="submitted && f.genero.errors" class="invalid-feedback">
+                        <div *ngIf="f.genero.errors.required">Seleccione una opción</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-3">
+                    <label><b>Fecha de nacimiento:</b></label>
+                    <input class="form-control" formControlName="fechaNacimiento"
+                        [ngClass]="{ 'is-invalid': submitted && f.fechaNacimiento.errors }" type="date" />
+                    <div *ngIf="submitted && f.fechaNacimiento.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaNacimiento.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label><b>Direccion:</b></label>
+                    <input formControlName="direccion" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }" placeholder="Digite su direccion"
+                        type="text" />
+                    <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+                        <div *ngIf="f.direccion.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-2">
+                    <label><b>Telefono:</b></label>
+                    <input formControlName="telefono" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" placeholder="Digite su telefono"
+                        type="text" />
+                    <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+                        <div *ngIf="f.telefono.errors.required">Campo obligatorio</div>
+                        <div *ngIf="f.telefono.errors.maxlength">Debe tener máximo 15 caracteres</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Tercera fila-->
+
+            <div class="form-row">
+                <!--Cuarta fila-->
+
+                <div class="form-group col-5">
+                    <label><b>Email personal:</b></label>
+                    <input formControlName="email_Personal" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.email_Personal.errors }"
+                        placeholder="Digite su email personal" type="text" />
+                    <div *ngIf="submitted && f.email_Personal.errors" class="invalid-feedback">
+                        <div *ngIf="f.email_Personal.errors.required">Campo obligatorio</div>
+                        <div *ngIf="f.email_Personal.errors.email">Debe ser una dirección de correo electrónico válida
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group col-3">
+                    <label><b>Fecha de ingreso:</b></label>
+                    <input class="form-control" formControlName="fechaIngreso"
+                        [ngClass]="{ 'is-invalid': submitted && f.fechaIngreso.errors }" type="date" />
+                    <div *ngIf="submitted && f.fechaIngreso.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaIngreso.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label><b>Programa:</b></label>
+                    <input formControlName="programa" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.programa.errors }"
+                        placeholder="Digite el programa al que pertenece" type="text" />
+                    <div *ngIf="submitted && f.programa.errors" class="invalid-feedback">
+                        <div *ngIf="f.programa.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Cuarta fila-->
+
+            <div class="form-row">
+                <!--Quinta fila-->
+
+                <div class="form-group col-6">
+                    <label><b>Email institucional:</b></label>
+                    <input formControlName="email_Institucional" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.email_Institucional.errors }"
+                        placeholder="Digite su email institucional" type="text" />
+                    <div *ngIf="submitted && f.email_Institucional.errors" class="invalid-feedback">
+                        <div *ngIf="f.email_Institucional.errors.required">Campo obligatorio</div>
+                        <div *ngIf="f.email_Institucional.errors.email">Debe ser una dirección de correo electrónico
+                            válida
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label><b>Link CvLAC:</b></label>
+                    <input formControlName="cvlac" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.cvlac.errors }" placeholder="Digite el link de CvLAC"
+                        type="url" />
+                    <div *ngIf="submitted && f.cvlac.errors" class="invalid-feedback">
+                        <div *ngIf="f.cvlac.errors.required">Campo obligatorio</div>
+                        <!-- <div *ngIf="f.cvlac.errors.pattern">Debe ser una dirección web válida</div> -->
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <!--Quinta fila-->
+
+                <div class="form-group col-6">
+                    <label><b>Username:</b></label>
+                    <input formControlName="username" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Digite su username"
+                        type="text" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label><b>Password:</b></label>
+                    <input formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Digite su password"
+                        type="password" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Campo obligatorio</div>
+                    </div>
+                </div>
+            </div>
+            <!--Quinta fila-->
+
+            <div class="form-group">
+                <button class="btn btn-primary">Agregar</button>
+            </div>
+
+        </form>
     </div>
-    <div class="form-group">
-        <label>Segundo apellido:
-            <input [(ngModel)]="tutor.segundoApellido" class="form-control" placeholder="Digite el segundo apellido" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Genero: </label>
-        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="tutor.genero" type="text"> 
-            <option>Masculino</option>
-            <option>Femenino</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Fecha de nacimiento:
-            <input [(ngModel)]="tutor.fechaNacimiento" class="form-control" placeholder="Digite su fecha de nacimiento" type="date" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Direccion:
-            <input [(ngModel)]="tutor.direccion" class="form-control" placeholder="Digite su direccion" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Telefono:
-            <input [(ngModel)]="tutor.telefono" class="form-control" placeholder="Digite su telefono" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Email personal:
-            <input [(ngModel)]="tutor.email_Personal" class="form-control" placeholder="Digite su email personal" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Fecha de ingreso:
-            <input [(ngModel)]="tutor.fechaIngreso" class="form-control" placeholder="Digite su fecha de ingreso" type="date" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Programa:
-            <input [(ngModel)]="tutor.programa" class="form-control" placeholder="Digite el programa al que pertenece" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Email institucional:
-            <input [(ngModel)]="tutor.email_Institucional" class="form-control" placeholder="Digite su email institucional" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Link CvLAC:
-            <input [(ngModel)]="tutor.cvlac" class="form-control" placeholder="Digite el link de CvLAC" type="text" />
-        </label>
-    </div>
-<div class="form-group">
-    <button (click)="add()" class="btn btn-primary">Agregar</button>
-</div>
+</header>

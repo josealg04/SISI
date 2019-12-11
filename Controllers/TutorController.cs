@@ -22,22 +22,25 @@ namespace TutorSharpHTTP.Controllers
             {
                 // Crea un nuevo item si la coleccion esta vacia,
                 // lo que significa que no puedes borrar todos los Items.
-                _context.TutorItems.Add(new TutorItem { 
-                    TipoDocumento = "CC", 
-                    Cedula = "1003242337", 
-                    PrimerNombre = "Jose", 
-                    SegundoNombre = "Angel", 
-                    PrimerApellido = "Lopez", 
-                    SegundoApellido = "Gomez", 
-                    Genero = "Masculino", 
-                    FechaNacimiento = Convert.ToDateTime("04/08/2000"), 
-                    Direccion = "Manzana 5 Casa 13 Alamos 2", 
-                    Telefono = "3013222267", 
-                    Email_Personal = "jose-angel200090@hotmail.com", 
-                    FechaIngreso = Convert.ToDateTime("04/08/2000"), 
-                    Programa = "Ingeniería de Sistemas", 
-                    Email_Institucional = "jangellopez@unicesar.edu.co", 
-                    Cvlac = "www.google.com" 
+                _context.TutorItems.Add(new TutorItem
+                {
+                    TipoDocumento = "CC",
+                    Cedula = "1003242337",
+                    PrimerNombre = "Jose",
+                    SegundoNombre = "Angel",
+                    PrimerApellido = "Lopez",
+                    SegundoApellido = "Gomez",
+                    Genero = "Masculino",
+                    FechaNacimiento = Convert.ToDateTime("04/08/2000"),
+                    Direccion = "Manzana 5 Casa 13 Alamos 2",
+                    Telefono = "3013222267",
+                    Email_Personal = "jose-angel200090@hotmail.com",
+                    FechaIngreso = Convert.ToDateTime("04/08/2000"),
+                    Programa = "Ingeniería de Sistemas",
+                    Email_Institucional = "jangellopez@unicesar.edu.co",
+                    Cvlac = "www.google.com",
+                    Username = "josealg04",
+                    Password = "jose12345"
                 });
                 _context.SaveChanges();
             }
@@ -103,5 +106,17 @@ namespace TutorSharpHTTP.Controllers
             return NoContent();
         }
 
+        //LOGIN
+        [HttpGet("user={user}")]
+        public async Task<ActionResult<TutorItem>> GetTutorByUser(string user)
+        {
+            //prueba linq
+            var tutor = await _context.TutorItems.FirstOrDefaultAsync(i => i.Username == user);
+            if (tutor == null)
+            {
+                return NotFound();
+            }
+            return tutor;
+        }
     }
 }

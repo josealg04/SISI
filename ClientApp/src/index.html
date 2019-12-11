@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>SISI</title>
-    <base href="/" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <app-root>Loading...</app-root>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>SISI</title>
+  <base href="/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+  <app-root>
+    <div class="loader"></div>
+
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid rgb(8, 221, 122);
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        position: fixed;
+        animation: spin 2s linear infinite;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        top: 0px;
+        margin: auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </app-root>
+</body>
+
 </html>

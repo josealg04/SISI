@@ -1,100 +1,101 @@
-<br>
-<br>
-
-<div *ngIf="tutor">
-    <div>
-        <h1 class="h2"><b>Editar tutor</b></h1>
+<header class="home-area overlay" id="home_page">
+    <div *ngIf="tutor">
+        <div>
+            <h1 class="h2"><b>Editar tutor</b></h1>
+        </div>
+        <br>
+        <div class="form-group">
+            <label><b>Tipo de documento:</b>
+                {{tutor.tipoDocumento}}
+            </label>
+        </div>
+        <div class="form-group">
+            <label><b>Cedula:</b>
+                {{tutor.cedula}}
+            </label>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Primer nombre:
+                <input [(ngModel)]="tutor.primerNombre" class="form-control" placeholder="Digite el primer nombre"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Segundo nombre:
+                <input [(ngModel)]="tutor.segundoNombre" class="form-control" placeholder="Digite el segundo nombre "
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Primer apellido:
+                <input [(ngModel)]="tutor.primerApellido" class="form-control" placeholder="Digite el primer apellido"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Segundo apellido:
+                <input [(ngModel)]="tutor.segundoApellido" class="form-control" placeholder="Digite el segundo apellido"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Genero: </label>
+            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="tutor.genero" type="text">
+                <option>Masculino</option>
+                <option>Femenino</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Fecha de nacimiento:
+                <input [(ngModel)]="tutor.fechaNacimiento" class="form-control"
+                    placeholder="Digite su fecha de nacimiento" type="date" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Direccion:
+                <input [(ngModel)]="tutor.direccion" class="form-control" placeholder="Digite su direccion"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Telefono:
+                <input [(ngModel)]="tutor.telefono" class="form-control" placeholder="Digite su telefono" type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Email personal:
+                <input [(ngModel)]="tutor.email_Personal" class="form-control" placeholder="Digite su email personal"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Fecha de ingreso:
+                <input [(ngModel)]="tutor.fechaIngreso" class="form-control" placeholder="Digite su fecha de ingreso"
+                    type="date" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Programa:
+                <input [(ngModel)]="tutor.programa" class="form-control"
+                    placeholder="Digite el programa al que pertenece" type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Email institucional:
+                <input [(ngModel)]="tutor.email_Institucional" class="form-control"
+                    placeholder="Digite su email institucional" type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Link CvLAC:
+                <input [(ngModel)]="tutor.cvlac" class="form-control" placeholder="Digite el link de CvLAC"
+                    type="text" />
+            </label>
+        </div>
+        <div class="form-group">
+            <button (click)="update()" class="btn btn-primary">Actualizar</button>
+            <button (click)="delete()" class="btn btn-danger">Eliminar</button>
+        </div>
     </div>
-<br>
-    <div class="form-group">
-        <label><b>Tipo de documento:</b>
-            {{tutor.tipoDocumento}}
-        </label>
-    </div>
-    <div class="form-group">
-        <label><b>Cedula:</b>
-            {{tutor.cedula}}
-        </label>
-    </div>
-    <br>
-    <div class="form-group">
-        <label>Primer nombre:
-            <input [(ngModel)]="tutor.primerNombre" class="form-control" placeholder="Digite el primer nombre"
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Segundo nombre:
-            <input [(ngModel)]="tutor.segundoNombre" class="form-control" placeholder="Digite el segundo nombre "
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Primer apellido:
-            <input [(ngModel)]="tutor.primerApellido" class="form-control" placeholder="Digite el primer apellido"
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Segundo apellido:
-            <input [(ngModel)]="tutor.segundoApellido" class="form-control" placeholder="Digite el segundo apellido"
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Genero: </label>
-        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="tutor.genero" type="text">
-            <option>Masculino</option>
-            <option>Femenino</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Fecha de nacimiento:
-            <input [(ngModel)]="tutor.fechaNacimiento" class="form-control" placeholder="Digite su fecha de nacimiento"
-                type="date" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Direccion:
-            <input [(ngModel)]="tutor.direccion" class="form-control" placeholder="Digite su direccion" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Telefono:
-            <input [(ngModel)]="tutor.telefono" class="form-control" placeholder="Digite su telefono" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Email personal:
-            <input [(ngModel)]="tutor.email_Personal" class="form-control" placeholder="Digite su email personal"
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Fecha de ingreso:
-            <input [(ngModel)]="tutor.fechaIngreso" class="form-control" placeholder="Digite su fecha de ingreso"
-                type="date" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Programa:
-            <input [(ngModel)]="tutor.programa" class="form-control" placeholder="Digite el programa al que pertenece"
-                type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Email institucional:
-            <input [(ngModel)]="tutor.email_Institucional" class="form-control"
-                placeholder="Digite su email institucional" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Link CvLAC:
-            <input [(ngModel)]="tutor.cvlac" class="form-control" placeholder="Digite el link de CvLAC" type="text" />
-        </label>
-    </div>
-    <div class="form-group">
-        <button (click)="update()" class="btn btn-primary">Actualizar</button>
-        <button (click)="delete()" class="btn btn-danger">Eliminar</button>
-    </div>
-</div>
+</header>
